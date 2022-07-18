@@ -21,7 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="NEAT.py" />
     <Compile Include="ComputerPlayer.py" />
     <Compile Include="Pong.py" />
   </ItemGroup>
