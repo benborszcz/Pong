@@ -6,11 +6,18 @@ from ComputerPlayer import PerfectEdgeHunterComputerPlayer
 
 import pygame as pg
 import pygame.freetype as text
+
+print("Choose your opponent")
+
+print("(0) Normal Computer Player")
+print("(1) Random Computer Player")
+print("(2) Edge Hitting Computer Player")
+print("(3) Perfect Edge Hitting Computer Player")
+com_decision = input("Enter (0-3): ")
+
 pg.init()
 GAME_FONT = text.SysFont('Arial', 24)
-
 SCALE = 2
-
 ballSpeed = 1.5*SCALE
 paddleSpeed = 1.5*SCALE
 sWidth = 600*SCALE
@@ -182,13 +189,17 @@ wallL = Rectangle(sWidth-6, 0, 6, sHeight, 0, gray)
 drawList = [paddleR, paddleL, ball, wallT, wallB, wallL, wallR]
 
 op = EdgeHunterComputerPlayer(paddleL, ball, SCALE, False)
-#op2 = PerfectEdgeHunterComputerPlayer(paddleR, ball, SCALE, True)
+if com_decision == 1:
+    op = PerfectEdgeHunterComputerPlayer(paddleL, ball, SCALE, False)
+elif com_decision == 2:
+    op = RandomComputerPlayer(paddleL, ball, SCALE, False)
+elif com_decision == 3:
+    op = DumbComputerPlayer(paddleL, ball, SCALE, False)
 
 while checkQuit():
     checkAllInputs(paddleL, paddleR)
     checkCollisions(drawList)
     op.move()
-    #op2.move()
     update(drawList)
 
 pg.quit()
