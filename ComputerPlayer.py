@@ -1,4 +1,5 @@
 import random
+
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -133,6 +134,5 @@ class PerfectEdgeHunterComputerPlayer():
             self.paddle.moveU()
         elif diff < 0:
             self.paddle.moveD()
-
 
 

@@ -97,7 +97,6 @@ def checkAllInputs(paddleL, paddleR):
 
 
 def checkInputs(paddle, up, down):
-    keys = pg.key.get_pressed()
     if up:
         paddle.moveU()
     if down:
@@ -203,6 +202,5 @@ while checkQuit():
     update(drawList)
 
 pg.quit()
-
 
 
